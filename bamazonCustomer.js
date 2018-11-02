@@ -28,7 +28,7 @@ function display() {
                 [res[i].item_id, res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity],
             );
         }
-        console.log("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n")
+        console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n")
         console.log(table.toString());
         console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n")
         start()
@@ -45,9 +45,9 @@ function start() {
                 if ((!isNaN(beerID)) && (beerID <= 10) && (beerID > 0)) {
                     return true;
                 }
-                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                console.log("\n\n*-*-*-*-*-*-*-*");
                 console.log("\nENTER VALID ID.");
-                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                console.log("\n*-*-*-*-*-*-*-*\n");
                 return false;
             }
         },
@@ -59,9 +59,9 @@ function start() {
                 if (!isNaN(beerQ)) {
                     return true;
                 }
-                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                console.log("\n\n*-*-*-*-*-*-*-*-*-*-*");
                 console.log("\nENTER VALID QUANTITY.");
-                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                console.log("\n*-*-*-*-*-*-*-*-*-*-*\n");
                 return false;
             }
         }
@@ -90,19 +90,19 @@ function start() {
                     function (error) {
                         if (error) throw err;
                         var totalCost = answer.beerQuantity * chosenBeer.price;
-                        console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-                        console.log("\nTHANK YOU! HAPPY DRINKING!");
-                        console.log("YOU HAVE RESERVED " + answer.beerQuantity + " " + chosenBeer.product_name + "(S).");
-                        console.log("YOUR TOTAL COST IS: $" + totalCost + ".");
-                        console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                        console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                        console.log("\n                 THANK YOU! HAPPY DRINKING!");
+                        console.log("                 YOU HAVE RESERVED " + answer.beerQuantity + " " + chosenBeer.product_name + "(S).");
+                        console.log("                 YOUR TOTAL COST IS: $" + totalCost + ".");
+                        console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
                         display();
                     }
                 );
             }
             else {
-                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                 console.log("\nOOPS! SOMETHING WENT WRONG. CHECK TO MAKE SURE YOUR ITEMS ARE IN STOCK.");
-                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*=*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
                 start();
             }
         });
