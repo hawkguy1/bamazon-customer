@@ -23,13 +23,14 @@ function display() {
             head: ["ID", "BEER NAME", "TYPE", "PRICE", "IN STOCK"],
             colWidths: [5, 25, 20, 10, 10]
         });
-
         for (var i = 0; i < res.length; i++) {
             table.push(
                 [res[i].item_id, res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity],
             );
         }
+        console.log("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n")
         console.log(table.toString());
+        console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n")
         start()
     });
 };
@@ -39,15 +40,9 @@ function start() {
         {
             type: "input",
             name: "beerID",
-            message: "WHAT IS THE ID OF THE BEER YOU'D LIKE TO BUY? (TYPE Q TO QUIT)",
+            message: "WHAT IS THE ID OF THE BEER YOU'D LIKE TO BUY?",
             validate: function (beerID) {
-                //if users enter q or Q, exit the program.
-                if (beerID.toLowerCase() === "q") {
-                    connection.end();
-                    process.exit();
-                }
-                //users need to enter a number between 1 to 10 because there are 10 items in the table.
-                else if ((!isNaN(beerID)) && (beerID <= 10) && (beerID > 0)) {
+                if ((!isNaN(beerID)) && (beerID <= 10) && (beerID > 0)) {
                     return true;
                 }
                 console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
@@ -59,14 +54,9 @@ function start() {
         {
             type: "input",
             name: "beerQuantity",
-            message: "HOW MANY WOULD YOU LIKE? (TYPE Q TO QUIT)",
+            message: "HOW MANY WOULD YOU LIKE?",
             validate: function (beerQ) {
-                if (beerQ.toLowerCase() === "q") {
-                    connection.end();
-                    process.exit();
-                }
-                //users need to enter a number
-                else if (!isNaN(beerQ)) {
+                if (!isNaN(beerQ)) {
                     return true;
                 }
                 console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
@@ -101,7 +91,8 @@ function start() {
                         if (error) throw err;
                         var totalCost = answer.beerQuantity * chosenBeer.price;
                         console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-                        console.log("\nTHANK YOU! HAPPY DRINKING! YOU HAVE CHOSEN " + answer.beerQuantity + " " + chosenBeer.product_name + "(S).");
+                        console.log("\nTHANK YOU! HAPPY DRINKING!");
+                        console.log("YOU HAVE RESERVED " + answer.beerQuantity + " " + chosenBeer.product_name + "(S).");
                         console.log("YOUR TOTAL COST IS: $" + totalCost + ".");
                         console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                         display();
@@ -110,7 +101,7 @@ function start() {
             }
             else {
                 console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-                console.log("\nSORRY. SOMETHING WENT WRONG HERE. CHECK TO MAKE SURE YOUR ITEMS ARE IN STOCK");
+                console.log("\nOOPS! SOMETHING WENT WRONG. CHECK TO MAKE SURE YOUR ITEMS ARE IN STOCK.");
                 console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                 start();
             }
