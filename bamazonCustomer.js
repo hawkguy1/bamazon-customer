@@ -50,7 +50,9 @@ function start() {
                 else if ((!isNaN(beerID)) && (beerID <= 10) && (beerID > 0)) {
                     return true;
                 }
-                console.log("ENTER VALID ID.");
+                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                console.log("\nENTER VALID ID.");
+                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                 return false;
             }
         },
@@ -67,7 +69,9 @@ function start() {
                 else if (!isNaN(beerQ)) {
                     return true;
                 }
-                console.log("ENTER VALID QUANTITY.");
+                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                console.log("\nENTER VALID QUANTITY.");
+                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                 return false;
             }
         }
@@ -95,15 +99,19 @@ function start() {
                     ],
                     function (error) {
                         if (error) throw err;
-                        var totalCost = answer.quantity * chosenBeer.price;
-                        console.log("THANK YOU! HAPPY DRINKING! " + answer.quantity + " " + chosenBeer.product_name + ".");
+                        var totalCost = answer.beerQuantity * chosenBeer.price;
+                        console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                        console.log("\nTHANK YOU! HAPPY DRINKING! YOU HAVE CHOSEN " + answer.beerQuantity + " " + chosenBeer.product_name + "(S).");
                         console.log("YOUR TOTAL COST IS: $" + totalCost + ".");
+                        console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                         display();
                     }
                 );
             }
             else {
-                console.log("SORRY. SOMETHING WENT WRONG HERE. CHECK TO MAKE SURE YOUR ITEMS ARE IN STOCK");
+                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                console.log("\nSORRY. SOMETHING WENT WRONG HERE. CHECK TO MAKE SURE YOUR ITEMS ARE IN STOCK");
+                console.log("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                 start();
             }
         });
